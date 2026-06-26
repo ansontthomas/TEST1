@@ -1,4 +1,4 @@
-name: Hello World Manual
+name: Manual Hello World
 
 on:
   workflow_dispatch:
@@ -6,8 +6,8 @@ on:
       browser:
         description: "Select Browser"
         required: true
-        default: chromium
         type: choice
+        default: chromium
         options:
           - chromium
           - firefox
@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Display Selected Browser
-        run: echo "Selected Browser:${{ github.event.inputs.browser }}"
+      - name: Show Selected Browser
+        run: echo "Selected Browser:${{ inputs.browser }}"
 
       - name: Print Hello World
         run: echo "Hello World"
