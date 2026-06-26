@@ -1,25 +1,21 @@
-name: Manual Hello World
-
+name: Playwright Tests
 on:
-  workflow_dispatch:
-    inputs:
-      browser:
-        description: "Select Browser"
-        required: true
-        type: choice
-        default: chromium
-        options:
-          - chromium
-          - firefox
-          - webkit
-
+  push:
+    branches: ashkar
+  pull_request:
+    branches: ashkar
 jobs:
-  hello:
+  test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
-
     steps:
-      - name: Show Selected Browser
-        run: echo "Selected Browser:${{ inputs.browser }}"
-
-      - name: Print Hello World
-        run: echo "Hello World"
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci
+    # - name: Install Playwright Browsers
+    #   run: npx playwright install --with-deps
+    - name: Run intern
+      run: node intern.js
