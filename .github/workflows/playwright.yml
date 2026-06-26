@@ -1,16 +1,22 @@
-name: random
+name: Playwright Tests
 on:
   push:
-    branches:
-      -main
+    branches: -anson
+  pull_request:
+    branches: -anson
 jobs:
-  say-hi:
+  test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      - name: Step 1
-        run: echo"Hi"
-      - name: Step 2
-        run: echo"HiHi"
-
-  
-
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci
+    # - name: Install Playwright Browsers
+    #   run: npx playwright install --with-deps
+    - name: Run tests
+      run: node intern.js
+     
