@@ -17,5 +17,5 @@ jobs:
       run: npm ci
     # - name: Install Playwright Browsers
     #   run: npx playwright install --with-deps
-    - name: Run intern
-      run: node intern.js
+    - name: Run sum
+      run: node sum.js
