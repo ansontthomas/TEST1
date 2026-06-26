@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Display Selected Browser
-        run: echo "Selected Browser: ${{ github.event.inputs.browser }}"
+        run: echo "Selected Browser:${{ github.event.inputs.browser }}"
 
       - name: Print Hello World
         run: echo "Hello World"
