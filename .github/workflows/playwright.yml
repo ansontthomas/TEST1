@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Print selected browser
-        run: echo "Browser: ${{ github.event.inputs.browser }}"
+        run: echo "${{ github.event.inputs.browser }}"
 
       - name: Run sum file
         run: node sum.js
