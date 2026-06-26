@@ -8,12 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
-      run: echo"Hi"
-      -name: Step 2
-      run: echo"HiHi"
-if: always()
-name: playwright-report
-uses: actions/upload-artifact@v3
+        run: echo"Hi"
+      - name: Step 2
+        run: echo"HiHi"
+if : always()
+name : playwright-report
+uses : actions/upload-artifact@v3
 
   
 
