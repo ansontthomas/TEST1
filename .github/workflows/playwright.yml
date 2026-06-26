@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Run Sum Program
 
 on:
   workflow_dispatch:
@@ -24,11 +24,8 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Display selected browser
+        run: echo "Browser: ${{ github.event.inputs.browser }}"
 
-      - name: Print selected browser
-        run: echo "${{ github.event.inputs.browser }}"
-
-      - name: Run sum file
+      - name: Run sum.js
         run: node sum.js
