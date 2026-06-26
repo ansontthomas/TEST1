@@ -11,9 +11,9 @@ jobs:
         run: echo"Hi"
       - name: Step 2
         run: echo"HiHi"
-if : always()
-name : playwright-report
-uses : actions/upload-artifact@v3
+  if: always()
+  name: playwright-report
+  uses: actions/upload-artifact@v3
 
   
 
