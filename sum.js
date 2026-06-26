@@ -1,3 +1,7 @@
-console.log("sum of a number")
-let a=20 , b=50;
-console.log(a+b);
+function sum(a, b) {
+  return a + b;
+}
+
+const result = sum(10, 20);
+
+console.log("The sum is:", result);
