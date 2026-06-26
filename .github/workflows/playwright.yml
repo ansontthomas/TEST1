@@ -12,14 +12,6 @@ on:
           - chromium
           - firefox
           - webkit
-      environment:
-        description: "Select Environment"
-        required: true
-        default: staging
-        type: choice
-        options:
-          - staging
-          - production
 
 jobs:
   test:
@@ -28,7 +20,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Print selected options
-        run: |
-          echo "Browser: ${{ github.event.inputs.browser }}"
-          echo "Environment: ${{ github.event.inputs.environment }}"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Print selected browser
+        run: echo "Browser: ${{ github.event.inputs.browser }}"
+
+      - name: Run sum file
+        run: node sum.js
