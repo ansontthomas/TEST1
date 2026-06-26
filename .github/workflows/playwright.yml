@@ -2,8 +2,6 @@ name: Playwright Tests
 on:
   workflow_dispatch:
     branches: anson
-  pull_request:
-    branches: anson
 jobs:
   test:
     timeout-minutes: 60
